@@ -2,38 +2,64 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
-  
+
+  <!-- Font -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@600;800&display=swap" rel="stylesheet">
+
+  <!-- Tailwind play cdn -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="script/tailwind-config.js"></script>
+
+  <!-- Alpine.js -->
+  <!-- Alpine Plugins -->
+  <script defer src="https://unpkg.com/@alpinejs/persist@3.x.x/dist/cdn.min.js"></script>
+
+  <!-- Alpine Core -->
+  <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
+
+
   <title>Frontend Mentor | Interactive pricing component</title>
 
-  <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
-  <style>
-    .attribution { font-size: 11px; text-align: center; }
-    .attribution a { color: hsl(228, 45%, 44%); }
-  </style>
 </head>
 <body>
+  <main class="antialiased text-blue-5 bg-blue-2 h-full">
 
-  Simple, traffic-based pricing
-  Sign-up for our 30-day trial. No credit card required. 
+      <h1 class="text-lg text-blue-6 font-bold">Simple, traffic-based pricing</h1>
+      <p class="text-extra">Sign-up for our 30-day trial. No credit card required.</p>
 
-  Pageviews
-  $ /month
+     <form>
+         Pageviews
+         $ /month
+         <input type="range" min="10" max="50" step="10">
 
-  Monthly Billing
-  Yearly Billing 25% discount
+         Monthly Billing
 
-  Unlimited websites
-  100% data ownership
-  Email reports
+         Yearly Billing <span class="text-red-2 bg-red-1 rounded-full py-0.5 px-2 text-xs"><span class="md:hidden">-25%</span><span class="hidden md:inline-block">25% discount</span></span>
 
-  Start my trial
-  
-  <div class="attribution">
-    Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. 
-    Coded by <a href="#">Your Name Here</a>.
-  </div>
+         <ul>
+             <li class="flex gap-3 items-center"><span><img src="images/icon-check.svg" alt=""></span><span>Unlimited websites</span></li>
+             <li class="flex gap-3 items-center"><span><img src="images/icon-check.svg" alt=""></span><span>100% data ownership</span></li>
+             <li class="flex gap-3 items-center"><span><img src="images/icon-check.svg" alt=""></span><span>Email reports</span></li>
+         </ul>
+
+
+
+
+         <button class="rounded-full text-sm bg-blue-6 text-blue-1 px-4 py-2 hover:text-white transition">Start my trial</button>
+     </form>
+  </main>
+
+  <footer class="absolute bottom-0 inset-x-0 bg-white/50 p-2">
+    <p class="text-sm text-center text-blue-6">
+      Challenge by <a class="underline hover:text-blue-5 transition" href="https://www.frontendmentor.io/challenges/interactive-pricing-component-t0m8PIyY8" target="_blank">Frontend Mentor</a>. <br class="sm:hidden"/>
+      Coded by <a class="underline hover:text-blue-5 transition" href="https://www.frontendmentor.io/profile/wendyhamel" target="_blank">Wendy Hamel</a>.
+    </p>
+  </footer>
+  <script src="script/pricing.js"></script>
 </body>
 </html>
