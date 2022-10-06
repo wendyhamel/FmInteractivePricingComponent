@@ -1,0 +1,139 @@
+.slider {
+    --cyan-1: hsl(174, 77%, 80%);
+    --cyan-2: hsl(174, 86%, 45%);
+    --cyan-3: hsla(174, 77%, 80%, .2);
+    --cyan-4: hsl(174, 100%, 45%);
+    --cyan-5: hsl(174, 70%, 45%);
+    --blue-3: hsl(224, 65%, 95%);
+    --track: var(--blue-3);
+    --fill: var(--cyan-1);
+    --fill-hover: var(--cyan-3);
+    --size-full: 100%;
+    --size-2: .5rem;
+    --size-10: 2.5rem;
+    --rounded-full: 9999px;
+}
+.slider[type=range] {
+    padding: 0;
+    width: var(--size-full);
+    height: var(--size-10);
+    background: transparent;
+}
+.slider[type=range], [type=range]::-webkit-slider-thumb {
+    -webkit-appearance: none;
+}
+.slider[type=range]:focus {
+    outline: none;
+}
+
+.slider[type=range]::-webkit-slider-runnable-track {
+    box-sizing: border-box;
+    border: none;
+    width: var(--size-full);
+    height: var(--size-2);
+    border-radius: var(--rounded-full);
+    background: var(--blue-3);
+}
+/*.slider[type=range]:hover::-webkit-slider-runnable-track {*/
+/*    background: var(--track), var(--fill-hover);*/
+/*}*/
+.slider[type=range]::-moz-range-track {
+    box-sizing: border-box;
+    border: none;
+    width: var(--size-full);
+    height: var(--size-2);
+    border-radius: var(--rounded-full);
+    background: var(--blue-3);
+}
+.slider[type=range]::-ms-track {
+    box-sizing: border-box;
+    border: none;
+    width: var(--size-full);
+    height: var(--size-2);
+    border-radius: var(--rounded-full);
+    background: transparent;
+    color: transparent;
+}
+
+.slider[type=range].slider-progress {
+    --range: calc(var(--max) - var(--min));
+    --ratio: calc((var(--value) - var(--min)) / var(--range));
+    --med: calc(0.5 * var(--size-10) + var(--ratio) * (100% - var(--size-10)));
+}
+.slider[type=range].slider-progress::-webkit-slider-runnable-track {
+    background: linear-gradient(var(--cyan-1),var(--cyan-1)) 0/var(--med) 100% no-repeat, var(--blue-3);
+}
+
+.slider[type=range]::-moz-range-progress {
+    background: var(--cyan-1);
+    height: var(--size-2);
+    border-radius: var(--rounded-full);
+}
+.slider[type=range]::-ms-fill-upper {
+    background: var(--blue-3);
+}
+.slider[type=range]::-ms-fill-lower {
+    background: var(--cyan-1);
+    height: var(--size-2);
+}
+
+.slider[type=range]::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    margin-top: -15px;
+    box-sizing: border-box;
+    border: none;
+    width: var(--size-10);
+    height: var(--size-10);
+    border-radius: var(--rounded-full);
+    background: url(../images/icon-slider.svg) center center no-repeat, var(--cyan-2);
+    box-shadow: 1px 12px 24px 2px rgba(165, 243, 235, 1), 1px 12px 20px 1px var(--cyan-3);
+    cursor: pointer;
+}
+.slider[type=range]::-moz-range-thumb {
+    box-sizing: border-box;
+    border: none;
+    width: var(--size-10);
+    height: var(--size-10);
+    border-radius: var(--rounded-full);
+    background: url(../images/icon-slider.svg) center center no-repeat, var(--cyan-2);
+    box-shadow: 1px 12px 24px 2px rgba(165, 243, 235, 1), 1px 12px 20px 1px var(--cyan-3);
+    cursor: pointer;
+}
+.slider[type=range]::-ms-thumb {
+    margin-top: 0;
+    box-sizing: border-box;
+    border: none;
+    width: var(--size-10);
+    height: var(--size-10);
+    border-radius: var(--rounded-full);
+    background: url(../images/icon-slider.svg) center center no-repeat, var(--cyan-2);
+    box-shadow: 1px 12px 24px 2px rgba(165, 243, 235, 1), 1px 12px 20px 1px var(--cyan-3);
+    cursor: pointer;
+}
+
+.slider[type=range]:hover::-webkit-slider-thumb {
+    background: url(../images/icon-slider.svg) center center no-repeat, var(--cyan-4);
+}
+.slider[type=range]:hover::-moz-range-thumb {
+    background: url(../images/icon-slider.svg) center center no-repeat, var(--cyan-4);
+}
+.slider[type=range]:hover::-ms-thumb {
+    background: url(../images/icon-slider.svg) center center no-repeat, var(--cyan-4);
+}
+
+.slider[type=range]:focus::-webkit-slider-thumb {
+    background: url(../images/icon-slider.svg) center center no-repeat, var(--cyan-5);
+    cursor: grab;
+}
+.slider[type=range]:focus::-moz-range-thumb {
+    background: url(../images/icon-slider.svg) center center no-repeat, var(--cyan-5);
+    cursor: grab;
+}
+.slider[type=range]:focus::-ms-thumb {
+    background: url(../images/icon-slider.svg) center center no-repeat, var(--cyan-5);
+    cursor: grab;
+}
+
+.slider[type=range]::-ms-tooltip {
+    display: none;
+}
