@@ -27,177 +27,199 @@
 
     <!-- slider styling -->
     <style>
-        [type=range] {
-            margin: 0;
+        .slider {
+            --cyan-1: hsl(174, 77%, 80%);
+            --cyan-2: hsl(174, 86%, 45%);
+            --cyan-3: hsla(174, 77%, 80%, .2);
+            --cyan-4: hsl(174, 100%, 45%);
+            --cyan-5: hsl(174, 70%, 45%);
+            --blue-3: hsl(224, 65%, 95%);
+            --track: var(--blue-3);
+            --fill: var(--cyan-1);
+            --fill-hover: var(--cyan-3);
+            --size-full: 100%;
+            --size-2: .5rem;
+            --size-10: 2.5rem;
+            --rounded-full: 9999px;
+        }
+        .slider[type=range] {
             padding: 0;
-            width: 100%;
-            height: 40px;
+            width: var(--size-full);
+            height: var(--size-10);
             background: transparent;
         }
-        [type=range], [type=range]::-webkit-slider-thumb {
+        .slider[type=range], [type=range]::-webkit-slider-thumb {
             -webkit-appearance: none;
         }
-        [type=range]:focus {
+        .slider[type=range]:focus {
             outline: none;
         }
 
-        [type=range]::-webkit-slider-runnable-track {
+        .slider[type=range]::-webkit-slider-runnable-track {
             box-sizing: border-box;
             border: none;
-            width: 100%;
-            height: .5rem;
-            border-radius: 9999px;
-            background: hsl(224, 65%, 95%);
+            width: var(--size-full);
+            height: var(--size-2);
+            border-radius: var(--rounded-full);
+            background: var(--blue-3);
         }
-        .slider [type=range]::-webkit-slider-runnable-track {
-            background: hsl(174, 86%, 45%);
-        }
-        [type=range]::-moz-range-track {
+        /*.slider[type=range]:hover::-webkit-slider-runnable-track {*/
+        /*    background: var(--track), var(--fill-hover);*/
+        /*}*/
+        .slider[type=range]::-moz-range-track {
             box-sizing: border-box;
             border: none;
-            width: 100%;
-            height: .5rem;
-            border-radius: 9999px;
-            background: hsl(224, 65%, 95%);
+            width: var(--size-full);
+            height: var(--size-2);
+            border-radius: var(--rounded-full);
+            background: var(--blue-3);
         }
-        [type=range]::-ms-track {
+        .slider[type=range]::-ms-track {
             box-sizing: border-box;
             border: none;
-            width: 100%;
-            height: .5rem;
-            border-radius: 9999px;
+            width: var(--size-full);
+            height: var(--size-2);
+            border-radius: var(--rounded-full);
             background: transparent;
             color: transparent;
         }
-        [type=range]::-moz-range-progress {
-            background: hsl(174, 86%, 45%);
-            height: .5rem;
+        .slider[type=range]::-moz-range-progress {
+            background: var(--cyan-2);
+            height: var(--size-2);
         }
-        [type=range]:hover::-moz-range-progress {
-            background: hsl(174, 77%, 80%);
+        .slider[type=range]:hover::-moz-range-progress {
+            background: var(--cyan-1);
         }
-        [type=range]::-ms-fill-lower {
-            background: hsl(174, 86%, 45%);
-            height: .5rem;
+        .slider[type=range]::-ms-fill-upper {
+            background: var(--blue-3);
         }
-        [type=range]:hover::-ms-fill-lower {
-            background: hsl(174, 77%, 80%);
+        .slider[type=range]::-ms-fill-lower {
+            background: var(--cyan-2);
+            height: var(--size-2);
+        }
+        .slider[type=range]:hover::-ms-fill-lower {
+            background: var(--cyan-1);
         }
 
-        [type=range]::-webkit-slider-thumb {
+        .slider[type=range]::-webkit-slider-thumb {
             -webkit-appearance: none;
             margin-top: -15px;
             box-sizing: border-box;
             border: none;
-            width: 40px;
-            height: 40px;
-            border-radius: 9999px;
-            background: url(./images/icon-slider.svg) center center no-repeat, hsl(174, 86%, 45%);
-            box-shadow: 1px 12px 24px 2px rgba(165, 243, 235, 1), 1px 12px 20px 1px hsla(174, 77%, 80%, .2);
+            width: var(--size-10);
+            height: var(--size-10);
+            border-radius: var(--rounded-full);
+            background: url(./images/icon-slider.svg) center center no-repeat, var(--cyan-2);
+            box-shadow: 1px 12px 24px 2px rgba(165, 243, 235, 1), 1px 12px 20px 1px var(--cyan-3);
             cursor: pointer;
         }
-        [type=range]::-moz-range-thumb {
+        .slider[type=range]::-moz-range-thumb {
             box-sizing: border-box;
             border: none;
-            width: 40px;
-            height: 40px;
-            border-radius: 9999px;
-            background: url(./images/icon-slider.svg) center center no-repeat, hsl(174, 86%, 45%);
-            box-shadow: 1px 12px 24px 2px rgba(165, 243, 235, 1), 1px 12px 20px 1px hsla(174, 77%, 80%, .2);
+            width: var(--size-10);
+            height: var(--size-10);
+            border-radius: var(--rounded-full);
+            background: url(./images/icon-slider.svg) center center no-repeat, var(--cyan-2);
+            box-shadow: 1px 12px 24px 2px rgba(165, 243, 235, 1), 1px 12px 20px 1px var(--cyan-3);
             cursor: pointer;
         }
-        [type=range]::-ms-thumb {
+        .slider[type=range]::-ms-thumb {
             margin-top: 0;
             box-sizing: border-box;
             border: none;
-            width: 40px;
-            height: 40px;
-            border-radius: 9999px;
-            background: url(./images/icon-slider.svg) center center no-repeat, hsl(174, 86%, 45%);
-            box-shadow: 1px 12px 24px 2px rgba(165, 243, 235, 1), 1px 12px 20px 1px hsla(174, 77%, 80%, .2);
+            width: var(--size-10);
+            height: var(--size-10);
+            border-radius: var(--rounded-full);
+            background: url(./images/icon-slider.svg) center center no-repeat, var(--cyan-2);
+            box-shadow: 1px 12px 24px 2px rgba(165, 243, 235, 1), 1px 12px 20px 1px var(--cyan-3);
             cursor: pointer;
         }
 
-        [type=range]:hover::-webkit-slider-thumb {
-            background: url(./images/icon-slider.svg) center center no-repeat, hsl(174, 100%, 45%);
+        .slider[type=range]:hover::-webkit-slider-thumb {
+            background: url(./images/icon-slider.svg) center center no-repeat, var(--cyan-4);
         }
-        [type=range]:hover::-moz-range-thumb {
-            background: url(./images/icon-slider.svg) center center no-repeat, hsl(174, 100%, 45%);
+        .slider[type=range]:hover::-moz-range-thumb {
+            background: url(./images/icon-slider.svg) center center no-repeat, var(--cyan-4);
         }
-        [type=range]:hover::-ms-thumb {
-            background: url(./images/icon-slider.svg) center center no-repeat, hsl(174, 100%, 45%);
-        }
-
-        [type=range]:focus::-webkit-slider-thumb {
-            background: url(./images/icon-slider.svg) center center no-repeat, hsl(174, 70%, 45%);
-            cursor: grab;
-        }
-        [type=range]:focus::-moz-range-thumb {
-            background: url(./images/icon-slider.svg) center center no-repeat, hsl(174, 70%, 45%);
-            cursor: grab;
-        }
-        [type=range]:focus::-ms-thumb {
-            background: url(./images/icon-slider.svg) center center no-repeat, hsl(174, 70%, 54%);
-            cursor: grab;
+        .slider[type=range]:hover::-ms-thumb {
+            background: url(./images/icon-slider.svg) center center no-repeat, var(--cyan-4);
         }
 
-        [type=range]::-ms-tooltip {
+        .slider[type=range]:focus::-webkit-slider-thumb {
+            background: url(./images/icon-slider.svg) center center no-repeat, var(--cyan-5);
+            cursor: grab;
+        }
+        .slider[type=range]:focus::-moz-range-thumb {
+            background: url(./images/icon-slider.svg) center center no-repeat, var(--cyan-5);
+            cursor: grab;
+        }
+        .slider[type=range]:focus::-ms-thumb {
+            background: url(./images/icon-slider.svg) center center no-repeat, var(--cyan-5);
+            cursor: grab;
+        }
+
+        .slider[type=range]::-ms-tooltip {
             display: none;
         }
     </style>
 </head>
-<body>
-  <main class="antialiased text-blue-5 bg-blue-2 h-full">
-      <figure class="absolute top-0 h-[402px] overflow-hidden">
-          <img class="h-full w-full object-none object-left-top" src="images/bg-pattern.svg" alt="background pattern">
+<body class="bg-blue-2">
+  <main class="antialiased text-blue-5">
+      <figure class="absolute top-0 h-[402px] overflow-hidden inset-x-0">
+          <img class="h-full w-full object-cover object-left-top lg:object-fill" src="images/bg-pattern.svg" alt="background pattern">
       </figure>
-      <section class="relative w-full py-4 mt-6">
+      <section class="relative w-full py-4 mt-6 md:mt-10">
           <figure class="absolute inset-0 grid place-items-center">
               <img src="images/pattern-circles.svg" alt="pattern circles">
           </figure>
           <article class="relative mx-6 py-12">
-              <h1 class="text-xl text-blue-6 font-bold mb-2 text-center">Simple, traffic-based pricing</h1>
-              <p class="text-xs text-center leading-loose tracking-[0.04em]">Sign-up for our 30-day trial. <br class="sm:hidden" /> No credit card required.</p>
+              <h1 class="text-xl text-blue-6 font-bold mb-2 text-center leading-none md:font-bold md:text-3xl md:tracking-tight">Simple, traffic-based pricing</h1>
+              <p class="text-xs text-center leading-loose tracking-[0.04em] md:text-extra md:tracking-normal">Sign-up for our 30-day trial. <br class="sm:hidden" /> No credit card required.</p>
           </article>
       </section>
 
-     <form class="relative bg-white rounded-lg shadow-xl shadow-blue-3 mx-6 pb-8 flex flex-col items-center" x-data="{billing: false}">
-         <fieldset class="mt-8 px-6 w-full flex flex-col text-xs">
-             <label class="uppercase font-bold tracking-[0.15em] text-center mb-6"><span>100k</span> Pageviews</label>
-             <input class="slider" type="range" min="10" max="50" step="10">
-             <span class="mt-7 flex justify-center items-center gap-2 text-sm"><span class="text-3xl font-bold text-blue-6">$<span>16.00</span></span> / month</span>
-         </fieldset>
+      <section class="px-6 md:mt-6">
+          <h2 class="sr-only">pageviews billing form</h2>
+          <form x-data="pricing()" class="relative bg-white rounded-lg shadow-xl shadow-blue-3 pb-8 flex flex-col items-center max-w-[34rem] mx-auto">
+              <fieldset class="mt-8 px-6 w-full grid items-center text-xs md:text-extra md:grid-cols-2 md:mt-12 md:px-12">
+                  <label class="uppercase font-bold tracking-[0.15em] text-center md:text-left"><span x-text="selectedItem.pageviews"></span> Pageviews</label>
+                  <input class="mt-6 mb-7 slider md:col-span-2 md:row-start-2 md:mt-8 md:mb-1" type="range" min="0" max="4" step="1" x-model="selected">
+                  <span class="flex justify-center items-center gap-2 md:justify-end"><span class="text-3xl font-bold text-blue-6 md:text-[2.5rem]">$<span x-text="amount + '.00'"></span></span> <span class="text-sm md:text-extra" x-text="yearlyBilling ? '/ year' : '/ month'"></span></span>
+              </fieldset>
 
-         <fieldset class="mt-8 pl-7 mb-9 flex items-center gap-3 text-xs">
-             <label>Monthly Billing</label>
-             <button
-                     x-on:click=" billing = !billing "
-                     type="button"
-                     class="flex-shrink-0 group relative rounded-full inline-flex items-center justify-center h-7 w-12 cursor-pointer focus:outline-none ease-in-out duration-200"
-                     aria-pressed="false"
-             >
-                 <span class="sr-only">billing</span>
-                 <span
-                         aria-hidden="true"
-                         class="bg-blue-4 pointer-events-none absolute h-5 w-10 mx-auto rounded-full group-hover:bg-cyan-1 group-focus:bg-cyan-1 ease-in-out duration-200"
-                 ></span>
-                 <span
-                         aria-hidden="true"
-                         class="translate-x-0 pointer-events-none absolute left-1.5 inline-block h-4 w-4 border border-blue-4 rounded-full bg-white shadow transform ring-0 group-hover:border-cyan-1 ease-in-out duration-200"
-                         x-bind:class="{ 'translate-x-5' : billing }"
-                 ></span>
-             </button>
-             <p>Yearly Billing <span class="ml-1 text-red-2 bg-red-1 rounded-full py-0.5 px-2 text-xs"><span class="md:hidden">-25%</span><span class="hidden md:inline-block">25% discount</span></span></p>
-         </fieldset>
-         <hr class="text-blue-3 w-full"/>
-         <ul class="p-6 flex flex-col gap-3 items-center">
-             <li class="flex gap-3 items-center"><span><img src="images/icon-check.svg" alt=""></span><span class="text-xs">Unlimited websites</span></li>
-             <li class="flex gap-3 items-center"><span><img src="images/icon-check.svg" alt=""></span><span class="text-xs">100% data ownership</span></li>
-             <li class="flex gap-3 items-center"><span><img src="images/icon-check.svg" alt=""></span><span class="text-xs">Email reports</span></li>
-         </ul>
+              <fieldset class="mt-8 pl-7 mb-9 flex items-center gap-3 text-xs md:pl-0 md:self-end md:pr-16">
+                  <p>Monthly Billing</p>
+                  <button
+                          @click="yearlyBilling = !yearlyBilling"
+                          type="button"
+                          class="flex-shrink-0 group relative rounded-full inline-flex items-center justify-center h-7 w-12 cursor-pointer focus:outline-none ease-in-out duration-200"
+                          aria-pressed="false"
+                  >
+                      <span class="sr-only" x-text="yearlyBilling ? 'Yearly Billing' : 'Monthly Billing'"></span>
+                      <span
+                              aria-hidden="true"
+                              class="bg-blue-4 pointer-events-none absolute h-5 w-10 mx-auto rounded-full group-hover:bg-cyan-1 group-focus:bg-cyan-1 ease-in-out duration-200"
+                      ></span>
+                      <span
+                              aria-hidden="true"
+                              class="translate-x-0 pointer-events-none absolute left-1.5 inline-block h-4 w-4 border border-blue-4 rounded-full bg-white shadow transform ring-0 group-hover:border-cyan-1 ease-in-out duration-200"
+                              :class="{ 'translate-x-5' : yearlyBilling }"
+                      ></span>
+                  </button>
+                  <p>Yearly Billing <span class="ml-1 text-red-2 bg-red-1 rounded-full py-0.5 px-2 text-xs"><span class="md:hidden">-25%</span><span class="hidden md:inline-block">25% discount</span></span></p>
+              </fieldset>
+              <hr class="text-blue-3 w-full"/>
+              <footer class="flex flex-col items-center md:flex-row md:px-12 md:w-full md:justify-between">
+                  <ul class="p-6 flex flex-col gap-3 items-center">
+                      <li class="flex gap-3 items-center"><span><img src="images/icon-check.svg" alt=""></span><span class="text-xs">Unlimited websites</span></li>
+                      <li class="flex gap-3 items-center"><span><img src="images/icon-check.svg" alt=""></span><span class="text-xs">100% data ownership</span></li>
+                      <li class="flex gap-3 items-center"><span><img src="images/icon-check.svg" alt=""></span><span class="text-xs">Email reports</span></li>
+                  </ul>
 
-         <button type="submit" class="mt-2 rounded-full bg-blue-6 text-blue-1 font-bold text-xs leading-none px-12 py-4 hover:text-white transition">Start my trial</button>
-     </form>
+                  <button type="submit" class="mt-2 rounded-full bg-blue-6 text-blue-1 font-bold text-xs leading-none px-12 py-4 hover:text-white focus:outline-none focus:text-white transition">Start my trial</button>
+              </footer>
+          </form>
+      </section>
   </main>
 
   <footer class="absolute bottom-0 inset-x-0 bg-white/50 p-2">
