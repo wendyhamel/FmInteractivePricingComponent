@@ -44,8 +44,8 @@
           <h2 class="sr-only">pageviews billing form</h2>
           <form x-data="pricing()" class="relative bg-white rounded-lg shadow-xl shadow-blue-3 pb-8 flex flex-col items-center max-w-[34rem] mx-auto">
               <fieldset class="mt-8 px-6 w-full grid items-center text-xs md:text-extra md:grid-cols-2 md:mt-12 md:px-12">
-                  <label class="uppercase font-bold tracking-[0.15em] text-center md:text-left"><span x-text="selectedItem.pageviews"></span> Pageviews</label>
-                  <input x-data="progress()" class="slider slider-progress mt-6 mb-7 md:col-span-2 md:row-start-2 md:mt-8 md:mb-1" type="range" min="0" max="4" step="1" x-model="selected">
+                  <label for="selectPageviews" class="uppercase font-bold tracking-[0.15em] text-center md:text-left"><span x-text="selectedItem.pageviews"></span> Pageviews</label>
+                  <input id="selectPageviews" x-data="progress()" class="slider slider-progress mt-6 mb-7 md:col-span-2 md:row-start-2 md:mt-8 md:mb-1" type="range" min="0" max="4" step="1" x-model="selected">
                   <span class="flex justify-center items-center gap-2 md:justify-end"><span class="text-3xl font-bold text-blue-6 md:text-[2.5rem]">$<span x-text="amount + '.00'"></span></span> <span class="text-sm md:text-extra" x-text="yearlyBilling ? '/ year' : '/ month'"></span></span>
               </fieldset>
 
